@@ -1,24 +1,28 @@
-function tipBox() {
-  alert('DOOOOOGE');
+$(document).ready(function(){
+  addTips();
+
+});
+
+function getApiKey() {
+  return "";
 }
 
-$(document).ready(function(){
-  // var comments = $("div[class='clearfix'][data-reactid]");
+function addTips() {
   var commentActions = $(".fsm.fwn.fcg");
-  var tip = ("<a id='dogeTip'> Tip this nig some doge</a>");
+  var tip = ("<a id='dogeTip'> Tip this nig some doge</a> ");
 
   commentActions.each(function() {
-    $(this).append(tip);
+    $(this).prepend(tip);
   });
     $('#dogeTip').click( function() { 
     });
 
-});
+}
 
 $(document).on('click', "a#dogeTip", function() {
-    form = ("<form action='http://givemethetip.com/'></form>");
-    // form.append("<input type=text value/>");
-    // $(this).replaceWith(form);
-    // console.log($(this));
-    $(this).parent().parent().parent().children('');
+
+    var recipient = $(this).parent().siblings(".UFICommentContent").children(".UFICommentActorName").eq(0).attr("href").match("([^/]*$)")[0]
+    console.log($(this));
+    var action = 'http://givemethetip.com/' + getApiKey() + '/' + recipient;
+    $(this).replaceWith("<form action=" + action +  " method='post'><input type=text name='amount'/></form>");
 });
