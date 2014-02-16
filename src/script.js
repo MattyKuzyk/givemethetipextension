@@ -8,10 +8,18 @@ function getApiKey() {
 }
 
 function addTips() {
-  var commentActions = $(".fsm.fwn.fcg");
-  var tip = ("<a id='dogeTip'> Tip this nig some doge</a> ");
+  // var commentActions = $(".fsm.fwn.fcg");
+  var commentActions = $(".fsm.fwn.fcg.UFICommentActions");
+  var statusActions = $("._5pcp");
+  var tip = ("<a id='dogeTip'>Tip</a>   · ");
 
   commentActions.each(function() {
+    $(this).prepend(tip);
+  });
+    $('#dogeTip').click( function() { 
+    });
+
+  statusActions.each(function() {
     $(this).prepend(tip);
   });
     $('#dogeTip').click( function() { 
